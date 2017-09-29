@@ -1,0 +1,13 @@
+# echo command output
+echo "Tell me about yourself"
+# who -r to get runlevel and other pertinent information
+set $(who -r)
+# am I active?
+echo "status active?"
+ifconfig | grep 'status: active' > /dev/null 2>&1
+if [ $? == 0 ]
+then
+   echo "online"
+else
+   echo "offline"
+fi
